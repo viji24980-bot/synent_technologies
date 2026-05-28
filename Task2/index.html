@@ -11,6 +11,7 @@
       padding:0;
       box-sizing:border-box;
       font-family: Arial, sans-serif;
+      scroll-behavior: smooth;
     }
 
     body{
@@ -29,6 +30,7 @@
       padding:18px 8%;
       position:sticky;
       top:0;
+      z-index:1000;
     }
 
     nav h1{
@@ -48,6 +50,7 @@
       color:white;
       text-decoration:none;
       transition:0.3s;
+      font-weight:bold;
     }
 
     nav ul li a:hover{
@@ -161,11 +164,34 @@
       padding:25px;
       border-radius:12px;
       box-shadow:0 0 15px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+
+    .service:hover{
+      transform:translateY(-10px);
     }
 
     .service h3{
       color:#007bff;
       margin-bottom:15px;
+    }
+
+    /* CONTACT */
+    .contact{
+      padding:70px 10%;
+      text-align:center;
+      background:white;
+    }
+
+    .contact h2{
+      color:#0056b3;
+      font-size:40px;
+      margin-bottom:30px;
+    }
+
+    .contact p{
+      margin:10px 0;
+      font-size:18px;
     }
 
     /* FOOTER */
@@ -185,6 +211,12 @@
 
       nav ul{
         margin-top:15px;
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+      nav ul li{
+        margin:10px;
       }
 
       .hero h2{
@@ -200,7 +232,8 @@
       }
 
       .features h2,
-      .services h2{
+      .services h2,
+      .contact h2{
         font-size:30px;
       }
     }
@@ -211,18 +244,20 @@
 
   <!-- NAVBAR -->
   <nav>
+
     <h1>Synent Technologies</h1>
 
     <ul>
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Features</a></li>
-      <li><a href="#">Services</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
+
   </nav>
 
   <!-- HERO SECTION -->
-  <section class="hero">
+  <section class="hero" id="home">
 
     <div class="hero-content">
 
@@ -234,14 +269,16 @@
         services to help businesses grow faster and smarter.
       </p>
 
-      <button>Explore Services</button>
+      <button onclick="document.getElementById('services').scrollIntoView();">
+        Explore Services
+      </button>
 
     </div>
 
   </section>
 
   <!-- FEATURES -->
-  <section class="features">
+  <section class="features" id="features">
 
     <h2>Why Choose Us</h2>
 
@@ -288,7 +325,7 @@
   </section>
 
   <!-- SERVICES -->
-  <section class="services">
+  <section class="services" id="services">
 
     <h2>Our Services</h2>
 
@@ -334,10 +371,21 @@
 
   </section>
 
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+
+    <h2>Contact Us</h2>
+
+    <p>Email: contact@synenttechnologies.com</p>
+    <p>Phone: +91 9876543210</p>
+    <p>Location: Andhra Pradesh, India</p>
+
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <p>© 2026 Synent Technologies | All Rights Reserved</p>
   </footer>
 
 </body>
-</html>
+</html></html>
