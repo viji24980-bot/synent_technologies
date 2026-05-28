@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#1e3c72,#6a11cb);
+    }
+
+    .container{
+      width:350px;
+      background:white;
+      padding:40px;
+      border-radius:15px;
+      box-shadow:0 0 20px rgba(0,0,0,0.3);
+      text-align:center;
+    }
+
+    h2{
+      margin-bottom:25px;
+      color:#4b0082;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin:12px 0;
+      border:1px solid #ccc;
+      border-radius:8px;
+      outline:none;
+    }
+
+    button{
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:8px;
+      background:linear-gradient(90deg,#1e3c72,#6a11cb);
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+      margin-top:10px;
+    }
+
+    button:hover{
+      opacity:0.9;
+    }
+
+    .links{
+      margin-top:15px;
+    }
+
+    .links a{
+      text-decoration:none;
+      color:#6a11cb;
+      font-size:14px;
+      display:block;
+      margin-top:8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2>Login</h2>
+
+    <form onsubmit="login(event)">
+
+      <input type="email" id="email" placeholder="Enter Email" required>
+
+      <input type="password" id="password" placeholder="Enter Password" required>
+
+      <button type="submit">Login</button>
+
+    </form>
+
+    <div class="links">
+      <a href="forgot.html">Forgot Password?</a>
+      <a href="signup.html">Create New Account</a>
+    </div>
+
+  </div>
+
+  <script>
+    function login(event){
+      event.preventDefault();
+
+      let email=document.getElementById("email").value;
+      let password=document.getElementById("password").value;
+
+      if(email && password){
+        alert("Login Successful");
+        window.location.href="dashboard.html";
+      }
+      else{
+        alert("Please fill all fields");
+      }
+    }
+  </script>
+
+</body>
+</html>
