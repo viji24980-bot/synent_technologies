@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Synent Technologies</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#f4f9ff;
+      color:#222;
+      line-height:1.6;
+    }
+
+    /* NAVBAR */
+    nav{
+      background:#0056b3;
+      color:white;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:18px 8%;
+      position:sticky;
+      top:0;
+    }
+
+    nav h1{
+      font-size:28px;
+    }
+
+    nav ul{
+      display:flex;
+      list-style:none;
+    }
+
+    nav ul li{
+      margin-left:25px;
+    }
+
+    nav ul li a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+    }
+
+    nav ul li a:hover{
+      color:#cce5ff;
+    }
+
+    /* HERO SECTION */
+    .hero{
+      min-height:90vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:40px 20px;
+      background:linear-gradient(to right, #007bff, #001f4d);
+      color:white;
+    }
+
+    .hero-content{
+      max-width:750px;
+    }
+
+    .hero h2{
+      font-size:55px;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:20px;
+      margin-bottom:30px;
+    }
+
+    .hero button{
+      padding:15px 35px;
+      border:none;
+      border-radius:8px;
+      background:white;
+      color:#0056b3;
+      font-size:18px;
+      cursor:pointer;
+      transition:0.3s;
+      font-weight:bold;
+    }
+
+    .hero button:hover{
+      background:#cce5ff;
+      transform:scale(1.05);
+    }
+
+    /* FEATURES */
+    .features{
+      padding:70px 10%;
+      text-align:center;
+    }
+
+    .features h2{
+      color:#0056b3;
+      font-size:40px;
+      margin-bottom:40px;
+    }
+
+    .feature-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .feature{
+      background:white;
+      padding:30px 20px;
+      border-radius:12px;
+      box-shadow:0 0 15px rgba(0,0,0,0.1);
+      transition:0.3s;
+    }
+
+    .feature:hover{
+      transform:translateY(-10px);
+    }
+
+    .feature h3{
+      color:#007bff;
+      margin-bottom:15px;
+      font-size:24px;
+    }
+
+    .feature p{
+      color:#444;
+    }
+
+    /* SERVICES */
+    .services{
+      background:#eaf4ff;
+      padding:70px 10%;
+      text-align:center;
+    }
+
+    .services h2{
+      color:#0056b3;
+      font-size:40px;
+      margin-bottom:40px;
+    }
+
+    .service-box{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:25px;
+    }
+
+    .service{
+      background:white;
+      padding:25px;
+      border-radius:12px;
+      box-shadow:0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .service h3{
+      color:#007bff;
+      margin-bottom:15px;
+    }
+
+    /* FOOTER */
+    footer{
+      background:#001f4d;
+      color:white;
+      text-align:center;
+      padding:20px;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+
+      nav{
+        flex-direction:column;
+      }
+
+      nav ul{
+        margin-top:15px;
+      }
+
+      .hero h2{
+        font-size:38px;
+      }
+
+      .hero p{
+        font-size:18px;
+      }
+
+      .hero button{
+        width:100%;
+      }
+
+      .features h2,
+      .services h2{
+        font-size:30px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <h1>Synent Technologies</h1>
+
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Features</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <h2>Innovative IT Solutions for Modern Businesses</h2>
+
+      <p>
+        Synent Technologies delivers advanced software solutions,
+        cloud services, DevOps automation, and digital transformation
+        services to help businesses grow faster and smarter.
+      </p>
+
+      <button>Explore Services</button>
+
+    </div>
+
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+
+    <h2>Why Choose Us</h2>
+
+    <div class="feature-container">
+
+      <div class="feature">
+        <h3>Modern Technologies</h3>
+
+        <p>
+          We use cutting-edge technologies like Cloud Computing,
+          AI, DevOps, and Automation to deliver scalable solutions.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>Expert Team</h3>
+
+        <p>
+          Our experienced developers and engineers provide reliable
+          and efficient software development services.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>24/7 Support</h3>
+
+        <p>
+          Dedicated customer support ensures smooth business
+          operations with quick issue resolution.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>Secure Solutions</h3>
+
+        <p>
+          We focus on cybersecurity and data protection to keep
+          business applications safe and secure.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services">
+
+    <h2>Our Services</h2>
+
+    <div class="service-box">
+
+      <div class="service">
+        <h3>Web Development</h3>
+
+        <p>
+          Professional and responsive websites using HTML, CSS,
+          JavaScript, React, and modern frameworks.
+        </p>
+      </div>
+
+      <div class="service">
+        <h3>Cloud Solutions</h3>
+
+        <p>
+          AWS and cloud infrastructure services for scalable,
+          reliable, and cost-effective business applications.
+        </p>
+      </div>
+
+      <div class="service">
+        <h3>DevOps Services</h3>
+
+        <p>
+          CI/CD pipeline automation using Docker, Kubernetes,
+          Jenkins, and GitHub Actions for faster deployments.
+        </p>
+      </div>
+
+      <div class="service">
+        <h3>Mobile App Development</h3>
+
+        <p>
+          Android and iOS mobile application development with
+          modern UI and powerful backend integration.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Synent Technologies | All Rights Reserved</p>
+  </footer>
+
+</body>
+</html>
