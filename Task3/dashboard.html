@@ -1,0 +1,87 @@
+<!-- dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#2563eb,#7c3aed);
+      color:white;
+    }
+
+    .box{
+      text-align:center;
+      background:rgba(255,255,255,0.1);
+      padding:40px;
+      border-radius:15px;
+      backdrop-filter:blur(10px);
+      width:400px;
+    }
+
+    h1{
+      margin-bottom:15px;
+    }
+
+    p{
+      margin-bottom:25px;
+      font-size:18px;
+    }
+
+    button{
+      padding:12px 25px;
+      border:none;
+      border-radius:8px;
+      background:white;
+      color:#2563eb;
+      font-size:16px;
+      cursor:pointer;
+      font-weight:bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h1>Dashboard</h1>
+
+    <p id="welcome"></p>
+
+    <button onclick="logout()">Logout</button>
+  </div>
+
+<script>
+
+let user=JSON.parse(localStorage.getItem("user"));
+let loggedIn=localStorage.getItem("loggedIn");
+
+if(loggedIn!="true"){
+  window.location.href="login.html";
+}
+
+document.getElementById("welcome").innerHTML=
+"Welcome, "+user.name;
+
+function logout(){
+  localStorage.removeItem("loggedIn");
+  alert("Logged Out");
+  window.location.href="login.html";
+}
+
+</script>
+
+</body>
+</html>
