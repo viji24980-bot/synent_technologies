@@ -1,212 +1,163 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>B Vijay Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>B Vijay Portfolio</title>
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
 
-body {
-  background: #0a0a0f;
-  color: white;
-  scroll-behavior: smooth;
-}
+    body{
+      background:#0f0f1a;
+      color:white;
+      line-height:1.6;
+    }
 
-/* NAVBAR */
-nav {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px 10%;
-  background: rgba(0,0,0,0.5);
-  position: fixed;
-  width: 100%;
-}
+    /* HEADER */
+    header{
+      background:#15152b;
+      text-align:center;
+      padding:40px 20px;
+      box-shadow:0 0 10px #b026ff;
+    }
 
-nav h1 {
-  color: #b026ff;
-}
+    header h1{
+      font-size:40px;
+      color:#b026ff;
+      margin-bottom:10px;
+    }
 
-nav ul {
-  display: flex;
-  list-style: none;
-}
+    header p{
+      font-size:20px;
+      color:#ddd;
+    }
 
-nav ul li {
-  margin-left: 20px;
-}
+    /* SECTION STYLE */
+    section{
+      width:80%;
+      margin:auto;
+      padding:50px 0;
+    }
 
-nav a {
-  color: white;
-  text-decoration: none;
-}
+    section h2{
+      color:#b026ff;
+      margin-bottom:20px;
+      border-bottom:2px solid #b026ff;
+      display:inline-block;
+      padding-bottom:5px;
+    }
 
-nav a:hover {
-  color: #b026ff;
-}
+    /* ABOUT */
+    .about p{
+      font-size:18px;
+      margin-top:15px;
+    }
 
-/* HERO */
-.hero {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
+    /* SKILLS */
+    .skills-container{
+      display:flex;
+      flex-wrap:wrap;
+      gap:15px;
+      margin-top:20px;
+    }
 
-.hero-text h1 {
-  font-size: 50px;
-  color: #b026ff;
-  text-shadow: 0 0 20px #b026ff;
-}
+    .skill{
+      background:#1d1d35;
+      padding:12px 20px;
+      border-radius:8px;
+      box-shadow:0 0 10px #b026ff;
+      transition:0.3s;
+    }
 
-.hero-text h2 {
-  margin-top: 10px;
-}
+    .skill:hover{
+      transform:scale(1.05);
+    }
 
-.hero-text p {
-  margin-top: 20px;
-  max-width: 400px;
-}
+    /* CONTACT */
+    .contact p{
+      margin:10px 0;
+      font-size:18px;
+    }
 
-/* IMAGE */
-.profile {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  border: 5px solid #b026ff;
-  box-shadow: 0 0 40px #b026ff;
-  animation: glow 2s infinite alternate;
-}
+    /* FOOTER */
+    footer{
+      text-align:center;
+      padding:20px;
+      background:#15152b;
+      margin-top:30px;
+    }
 
-@keyframes glow {
-  from { box-shadow: 0 0 20px #b026ff; }
-  to { box-shadow: 0 0 60px #b026ff; }
-}
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      header h1{
+        font-size:30px;
+      }
 
-/* SECTIONS */
-section {
-  padding: 80px 10%;
-}
+      header p{
+        font-size:18px;
+      }
 
-h2 {
-  color: #b026ff;
-  margin-bottom: 20px;
-}
-
-/* SKILLS */
-.skills span {
-  display: inline-block;
-  background: #1a1a2e;
-  padding: 10px;
-  margin: 5px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px #b026ff;
-}
-
-/* PROJECTS */
-.project {
-  background: #111;
-  padding: 20px;
-  margin: 10px 0;
-  border-radius: 10px;
-  transition: 0.3s;
-}
-
-.project:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #b026ff;
-}
-
-/* FOOTER */
-footer {
-  text-align: center;
-  padding: 20px;
-  background: #000;
-}
-</style>
+      section{
+        width:90%;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<nav>
-  <h1>B Vijay</h1>
-  <ul>
-    <li><a href="#about">About</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#projects">Projects</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div class="hero-text">
+  <!-- HEADER -->
+  <header>
     <h1>B Vijay</h1>
-    <h2>Front End Developer | Web Designer</h2>
+    <p>Front End Developer | Web Designer</p>
+  </header>
+
+  <!-- ABOUT ME -->
+  <section class="about">
+    <h2>About Me</h2>
     <p>
-      I am a Computer Science student passionate about DevOps and cloud technologies.
-      I enjoy building scalable web applications and automating workflows.
+      Hello! I am B Vijay, a B.Tech Computer Science student passionate about
+      web development, DevOps, and cloud technologies. I enjoy creating clean,
+      responsive websites and learning modern technologies like Docker,
+      Kubernetes, AWS, and CI/CD tools.
     </p>
-  </div>
+  </section>
 
-  <img src="photo.png" class="profile">
-</div>
+  <!-- SKILLS -->
+  <section>
+    <h2>Skills</h2>
 
-<!-- ABOUT -->
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    B.Tech student at Vemu Institute of Technology (2023–2027).
-    Aspiring DevOps Engineer skilled in CI/CD, Linux, Kubernetes, and Python.
-  </p>
-</section>
+    <div class="skills-container">
+      <div class="skill">HTML</div>
+      <div class="skill">CSS</div>
+      <div class="skill">JavaScript</div>
+      <div class="skill">Python</div>
+      <div class="skill">Docker</div>
+      <div class="skill">Kubernetes</div>
+      <div class="skill">AWS</div>
+      <div class="skill">Linux</div>
+    </div>
+  </section>
 
-<!-- SKILLS -->
-<section id="skills">
-  <h2>Skills</h2>
-  <div class="skills">
-    <span>Python</span>
-    <span>Docker</span>
-    <span>Kubernetes</span>
-    <span>CI/CD</span>
-    <span>Jenkins</span>
-    <span>AWS</span>
-    <span>Linux</span>
-    <span>HTML</span>
-    <span>CSS</span>
-    <span>JavaScript</span>
-  </div>
-</section>
+  <!-- CONTACT -->
+  <section class="contact">
+    <h2>Contact</h2>
 
-<!-- PROJECTS -->
-<section id="projects">
-  <h2>Projects</h2>
+    <p>Email: vijay24980@example.com</p>
+    <p>Phone: +91 8328143368</p>
+    <p>Location: Andhra Pradesh, India</p>
+  </section>
 
-  <div class="project">
-    <h3>Portfolio Website</h3>
-    <p>Built a personal portfolio using HTML, CSS, JavaScript with modern UI and animations.</p>
-  </div>
-
-  <div class="project">
-    <h3>CI/CD Pipeline</h3>
-    <p>Automated deployment using GitHub Actions and Docker.</p>
-  </div>
-
-  <div class="project">
-    <h3>AWS Serverless API</h3>
-    <p>Developed backend using AWS Lambda and DynamoDB.</p>
-  </div>
-
-</section>
-
-<footer>
-  <p>© 2026 B Vijay | Portfolio</p>
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 B Vijay | Portfolio Website</p>
+  </footer>
 
 </body>
-  </html>
+</html>
