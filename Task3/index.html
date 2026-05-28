@@ -1,3 +1,6 @@
+# index.html
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,10 +59,6 @@
       margin-top:10px;
     }
 
-    button:hover{
-      opacity:0.9;
-    }
-
     .links{
       margin-top:15px;
     }
@@ -67,9 +66,14 @@
     .links a{
       text-decoration:none;
       color:#6a11cb;
-      font-size:14px;
       display:block;
       margin-top:8px;
+    }
+
+    .message{
+      margin-top:15px;
+      color:red;
+      font-size:14px;
     }
   </style>
 </head>
@@ -80,7 +84,7 @@
 
     <h2>Login</h2>
 
-    <form onsubmit="login(event)">
+    <form id="loginForm">
 
       <input type="email" id="email" placeholder="Enter Email" required>
 
@@ -95,24 +99,419 @@
       <a href="signup.html">Create New Account</a>
     </div>
 
+    <div class="message" id="message"></div>
+
   </div>
 
   <script>
-    function login(event){
+    document.getElementById("loginForm").addEventListener("submit", function(event){
       event.preventDefault();
 
-      let email=document.getElementById("email").value;
-      let password=document.getElementById("password").value;
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
 
-      if(email && password){
-        alert("Login Successful");
-        window.location.href="dashboard.html";
+      let savedUser = JSON.parse(localStorage.getItem("user"));
+
+      if(savedUser && email === savedUser.email && password === savedUser.password){
+
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("currentUser", savedUser.name);
+
+        window.location.href = "dashboard.html";
+
+      }else{
+        document.getElementById("message").innerText = "Invalid Email or Password";
       }
-      else{
-        alert("Please fill all fields");
-      }
-    }
+    });
   </script>
 
 </body>
+</html>
+```
+
+---
+
+# signup.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#1e3c72,#6a11cb);
+    }
+
+    .container{
+      width:360px;
+      background:white;
+      padding:40px;
+      border-radius:15px;
+      text-align:center;
+      box-shadow:0 0 20px rgba(0,0,0,0.3);
+    }
+
+    h2{
+      margin-bottom:20px;
+      color:#4b0082;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin:10px 0;
+      border:1px solid #ccc;
+      border-radius:8px;
+    }
+
+    button{
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:8px;
+      background:linear-gradient(90deg,#1e3c72,#6a11cb);
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+      margin-top:10px;
+    }
+
+    a{
+      display:block;
+      margin-top:15px;
+      text-decoration:none;
+      color:#6a11cb;
+    }
+
+    .message{
+      margin-top:15px;
+      color:green;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2>Create Account</h2>
+
+    <form id="signupForm">
+
+      <input type="text" id="name" placeholder="Full Name" required>
+
+      <input type="email" id="email" placeholder="Email Address" required>
+
+      <input type="password" id="password" placeholder="Create Password" required>
+
+      <button type="submit">Signup</button>
+
+    </form>
+
+    <a href="index.html">Back to Login</a>
+
+    <div class="message" id="message"></div>
+
+  </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", function(event){
+      event.preventDefault();
+
+      let name = document.getElementById("name").value;
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+
+      let user = {
+        name:name,
+        email:email,
+        password:password
+      };
+
+      localStorage.setItem("user", JSON.stringify(user));
+
+      document.getElementById("message").innerText = "Account Created Successfully";
+
+      setTimeout(() => {
+        window.location.href = "index.html";
+      }, 1500);
+    });
+  </script>
+
+</body>
+</html>
+```
+
+---
+
+# forgot.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forgot Password</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      background:linear-gradient(135deg,#1e3c72,#6a11cb);
+    }
+
+    .container{
+      width:350px;
+      background:white;
+      padding:40px;
+      border-radius:15px;
+      text-align:center;
+      box-shadow:0 0 20px rgba(0,0,0,0.3);
+    }
+
+    h2{
+      margin-bottom:20px;
+      color:#4b0082;
+    }
+
+    input{
+      width:100%;
+      padding:12px;
+      margin:15px 0;
+      border:1px solid #ccc;
+      border-radius:8px;
+    }
+
+    button{
+      width:100%;
+      padding:12px;
+      border:none;
+      border-radius:8px;
+      background:linear-gradient(90deg,#1e3c72,#6a11cb);
+      color:white;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    a{
+      display:block;
+      margin-top:15px;
+      text-decoration:none;
+      color:#6a11cb;
+    }
+
+    .message{
+      margin-top:15px;
+      color:green;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2>Forgot Password</h2>
+
+    <form id="forgotForm">
+
+      <input type="email" id="email" placeholder="Enter Registered Email" required>
+
+      <button type="submit">Reset Password</button>
+
+    </form>
+
+    <a href="index.html">Back to Login</a>
+
+    <div class="message" id="message"></div>
+
+  </div>
+
+  <script>
+    document.getElementById("forgotForm").addEventListener("submit", function(event){
+      event.preventDefault();
+
+      let email = document.getElementById("email").value;
+
+      let savedUser = JSON.parse(localStorage.getItem("user"));
+
+      if(savedUser && email === savedUser.email){
+        document.getElementById("message").innerText = "Password Reset Link Sent Successfully";
+      }else{
+        document.getElementById("message").style.color = "red";
+        document.getElementById("message").innerText = "Email Not Found";
+      }
+    });
+  </script>
+
+</body>
+</html>
+```
+
+---
+
+# dashboard.html
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, sans-serif;
+    }
+
+    body{
+      background:#f4f7ff;
+    }
+
+    nav{
+      background:linear-gradient(90deg,#1e3c72,#6a11cb);
+      padding:18px 8%;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      color:white;
+    }
+
+    nav button{
+      padding:10px 20px;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      background:white;
+      color:#4b0082;
+      font-weight:bold;
+    }
+
+    .dashboard{
+      padding:50px 8%;
+      text-align:center;
+    }
+
+    .welcome{
+      font-size:28px;
+      color:#4b0082;
+      margin-bottom:40px;
+    }
+
+    .card-container{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:20px;
+    }
+
+    .card{
+      background:white;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 0 15px rgba(0,0,0,0.1);
+    }
+
+    .card h3{
+      color:#4b0082;
+      margin-bottom:10px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav>
+    <h1>Dashboard</h1>
+
+    <button onclick="logout()">Logout</button>
+  </nav>
+
+  <div class="dashboard">
+
+    <div class="welcome" id="welcomeText"></div>
+
+    <div class="card-container">
+
+      <div class="card">
+        <h3>Profile</h3>
+        <p>Manage your account details and personal settings.</p>
+      </div>
+
+      <div class="card">
+        <h3>Services</h3>
+        <p>Explore all available services and dashboard features.</p>
+      </div>
+
+      <div class="card">
+        <h3>Notifications</h3>
+        <p>Check updates, alerts, and latest messages.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    if(localStorage.getItem("loggedIn") !== "true"){
+      window.location.href = "index.html";
+    }
+
+    let username = localStorage.getItem("currentUser");
+
+    document.getElementById("welcomeText").innerText = "Welcome, " + username;
+
+    function logout(){
+      localStorage.removeItem("loggedIn");
+      localStorage.removeItem("currentUser");
+
+      alert("Logged Out Successfully");
+
+      window.location.href = "index.html";
+    }
+
+  </script>
+
+</body>
+</html>
+```
+
+# How It Works
+
+* First create account in `signup.html`
+* User data is stored using LocalStorage
+* Login checks stored email and password
+* Forgot password checks registered email
+* Dashboard only opens after login
+* Logout removes login session
+* Fully functional frontend authentication system using HTML, CSS, and JavaScript
 </html>
